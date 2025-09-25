@@ -9,4 +9,4 @@
 - Titan Hunt: Evolved (кооперативный экшен)
 - 3D-модели персонажей
 
-**[Открыть портфолио]([https://George2k2.github.io](https://george2k2.github.io))**
+**[Открыть портфолио][(https://george2k2.github.io)]**
