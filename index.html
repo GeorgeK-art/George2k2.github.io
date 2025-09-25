@@ -31,12 +31,21 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             margin-bottom: 30px;
+            backdrop-filter: blur(10px);
         }
         
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            color: #00b4db;
+            background: linear-gradient(45deg, #00b4db, #0083b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
         }
         
         .contacts {
@@ -51,6 +60,12 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 10px 20px;
             border-radius: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
         }
         
         section {
@@ -58,16 +73,87 @@
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #00b4db;
+            border-left: 4px solid #00b4db;
+            padding-left: 15px;
+        }
+        
+        .project {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 3px solid #0083b0;
+        }
+        
+        .project h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #00b4db;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: rgba(0, 180, 219, 0.2);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
         }
         
         .btn {
             display: inline-block;
-            background: #00b4db;
+            background: linear-gradient(45deg, #00b4db, #0083b0);
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
             text-decoration: none;
             margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 180, 219, 0.4);
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background: rgba(0, 180, 219, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            .contacts {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -75,18 +161,121 @@
     <div class="container">
         <header>
             <h1>Артем Козлов</h1>
-            <p>Геймдизайнер & 3D-художник</p>
+            <div class="subtitle">Геймдизайнер & 3D-художник</div>
+            <p>Создаю игровые миры от концепции до визуальной реализации</p>
+            
             <div class="contacts">
                 <div class="contact-item">📞 +375 (29) 121-38-05</div>
+                <div class="contact-item">✈️ George2k2 (Telegram)</div>
                 <div class="contact-item">📧 ar_koz@mail.ru</div>
+                <div class="contact-item">🔗 LinkedIn: Артем Козлов</div>
             </div>
         </header>
 
-        <section>
-            <h2>Мое портфолио</h2>
-            <p>Скоро здесь будет полная версия портфолио!</p>
-            <a href="https://sketchfab.com/ar_koz" class="btn">Мои 3D-модели</a>
+        <section id="gamedesign">
+            <h2>🎮 Геймдизайн проекты</h2>
+            
+            <div class="project">
+                <h3>Dimension Breaker</h3>
+                <div class="project-meta">
+                    <span class="meta-item">Гибридный PvP-шутер</span>
+                    <span class="meta-item">Файтинг</span>
+                    <span class="meta-item">Автор концепции</span>
+                </div>
+                <p>Уникальная система "Кодов Разлома", объединяющая тактический шутер и динамичный файтинг</p>
+                <a href="https://docs.google.com/document/d/1UPUBysWIjC8riCLSlc11Dv-kuOCIRx1ZyMEm9mvk3pc/edit?usp=sharing" class="btn" target="_blank">📄 Полный GDD</a>
+            </div>
+            
+            <div class="project">
+                <h3>Titan Hunt: Evolved</h3>
+                <div class="project-meta">
+                    <span class="meta-item">Кооперативный экшен</span>
+                    <span class="meta-item">В разработке</span>
+                    <span class="meta-item">Геймдизайнер</span>
+                </div>
+                <p>Командная разработка кооперативного экшена</p>
+                <a href="https://docs.google.com/document/d/1BPOZ9Pv4Bgz3pka1ggdJd4kkLxUbggLab_jC6trtrxw/edit?usp=sharing" class="btn" target="_blank">📄 Документация проекта</a>
+            </div>
+            
+            <div class="project">
+                <h3>Escape from Hell</h3>
+                <div class="project-meta">
+                    <span class="meta-item">Настольная игра</span>
+                    <span class="meta-item">Полный цикл</span>
+                    <span class="meta-item">Геймдизайнер</span>
+                </div>
+                <p>Разработка правил, систем и механик для настольной игры</p>
+                <a href="https://docs.google.com/document/d/1P0DPlh8mp7idSUqpu1ZkeumX6Ee-1B2h/edit?usp=sharing&ouid=108207688769805314952&rtpof=true&sd=true" class="btn" target="_blank">📄 Правила и механики</a>
+            </div>
+            
+            <div class="project">
+                <h3>Chaos Run</h3>
+                <div class="project-meta">
+                    <span class="meta-item">Аркадные догонялки</span>
+                    <span class="meta-item">Концепция</span>
+                    <span class="meta-item">Разработка</span>
+                </div>
+                <p>Проект аркадных догонялок на этапе концептуальной разработки</p>
+                <a href="https://docs.google.com/document/d/1m6EJJVgCU-2pe2VdMbmOeWOWcANG-X8adjaczIYbWLE/edit?usp=sharing" class="btn" target="_blank">📄 Концепт-документ</a>
+            </div>
+        </section>
+
+        <section id="3d-art">
+            <h2>🎨 3D-графика</h2>
+            
+            <div class="project">
+                <h3>Мои 3D-модели на Sketchfab</h3>
+                <p>Полная коллекция моих работ по 3D-моделированию персонажей и объектов</p>
+                <div style="margin-top: 15px;">
+                    <a href="https://sketchfab.com/ar_koz" class="btn" target="_blank">🌟 Все модели на Sketchfab</a>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3>Основные проекты</h3>
+                <div class="project-meta">
+                    <span class="meta-item">Персонажи</span>
+                    <span class="meta-item">PBR-текстурирование</span>
+                    <span class="meta-item">Игровые ассеты</span>
+                </div>
+                <p>Модели созданы в Blender с использованием полного цикла: скульптинг, ретопология, UV-развертка, текстурирование</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>👨‍💻 Обо мне</h2>
+            <p>Студент БГУИР по специальности "Информационные системы и технологии в игровой индустрии". Сочетаю навыки геймдизайна и 3D-моделирования для создания комплексных игровых решений.</p>
+            
+            <div style="margin-top: 20px;">
+                <h3 style="font-size: 1.2em; margin-bottom: 15px;">Навыки:</h3>
+                <div class="skills">
+                    <span class="skill">Системный геймдизайн</span>
+                    <span class="skill">Проектирование механик</span>
+                    <span class="skill">Написание GDD</span>
+                    <span class="skill">3D-моделирование</span>
+                    <span class="skill">PBR-текстурирование</span>
+                    <span class="skill">Работа в команде</span>
+                    <span class="skill">Unity</span>
+                    <span class="skill">Blender</span>
+                </div>
+            </div>
         </section>
     </div>
+
+    <script>
+        // Простой скрипт для плавной прокрутки
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
