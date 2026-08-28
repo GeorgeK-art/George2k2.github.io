@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Артем Козлов | Геймдизайнер & 3D-художник</title>
+    <title>Артем Козлов | Game Designer & 3D Artist</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         html {
@@ -19,375 +19,313 @@
         }
 
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top right, rgba(0,180,219,.15), transparent 35%),
+                linear-gradient(135deg, #0f172a, #111827 50%, #16213e);
+            color: #fff;
             line-height: 1.6;
-            padding: 20px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: min(1100px, calc(100% - 30px));
+            margin: auto;
         }
 
+        /* HEADER */
+
         header {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 60px 20px;
-            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero {
+            width: 100%;
+            max-width: 850px;
+            padding: 60px 35px;
+            background: rgba(255,255,255,.055);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 30px;
+            box-shadow: 0 25px 80px rgba(0,0,0,.25);
+            backdrop-filter: blur(15px);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 7px 15px;
             border-radius: 20px;
-            margin-bottom: 40px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0,180,219,.12);
+            border: 1px solid rgba(0,180,219,.3);
+            color: #00b4db;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #00b4db, #0083b0);
+            font-size: clamp(2.4rem, 7vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 15px;
+
+            background: linear-gradient(45deg, #00b4db, #38bdf8, #0083b0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
-            font-size: 1.4em;
-            opacity: 0.9;
+        .hero h2 {
+            border: none;
+            padding: 0;
+            color: #fff;
+            font-size: clamp(1.3rem, 4vw, 2rem);
             margin-bottom: 20px;
-            color: #00b4db;
         }
+
+        .hero-description {
+            max-width: 650px;
+            margin: auto;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 23px;
+            border-radius: 28px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+
+            background: linear-gradient(45deg, #00b4db, #0083b0);
+
+            border: 1px solid rgba(255,255,255,.1);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                background .25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,180,219,.3);
+        }
+
+        .btn.secondary {
+            background: rgba(255,255,255,.06);
+            border-color: rgba(0,180,219,.3);
+        }
+
+        /* CONTACTS */
 
         .contacts {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 10px;
+            margin-top: 25px;
         }
 
-        .contact-item {
-            background: rgba(0, 180, 219, 0.2);
-            padding: 12px 25px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 180, 219, 0.3);
-            color: white;
+        .contact {
             text-decoration: none;
+            color: #dbeafe;
+            padding: 9px 15px;
+            border-radius: 20px;
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.08);
+            transition: .25s;
         }
 
-        .contact-item:hover {
-            transform: translateY(-3px);
-            background: rgba(0, 180, 219, 0.35);
-            box-shadow: 0 5px 15px rgba(0, 180, 219, 0.4);
+        .contact:hover {
+            color: #00b4db;
+            border-color: rgba(0,180,219,.4);
+            transform: translateY(-2px);
         }
+
+        /* SECTIONS */
 
         section {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 20px;
             margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+
+            background: rgba(255,255,255,.055);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 25px;
+
+            backdrop-filter: blur(12px);
         }
 
         h2 {
-            font-size: 2.2em;
-            margin-bottom: 25px;
             color: #00b4db;
+            font-size: 2rem;
+            margin-bottom: 30px;
+
             border-left: 5px solid #00b4db;
-            padding-left: 20px;
+            padding-left: 15px;
         }
 
+        /* PROJECTS */
+
         .project {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 25px;
+            padding: 28px;
+            margin-bottom: 20px;
+
+            background: rgba(255,255,255,.045);
+
+            border-radius: 18px;
             border-left: 4px solid #0083b0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
         }
 
         .project:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,.2);
         }
 
         .project h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #00b4db;
+            color: #38bdf8;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
-        .project-meta {
+        .project p {
+            color: #d1d5db;
+        }
+
+        .tags {
             display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
             flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
         }
 
-        .meta-item {
-            background: rgba(0, 180, 219, 0.2);
-            padding: 8px 16px;
+        .tag {
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.9em;
-            border: 1px solid rgba(0, 180, 219, 0.3);
+
+            background: rgba(0,180,219,.1);
+            border: 1px solid rgba(0,180,219,.25);
+
+            color: #bae6fd;
+            font-size: .88rem;
         }
 
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #00b4db, #0083b0);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1em;
-            margin-right: 8px;
+        /* RESUME */
+
+        .resume-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: center;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,180,219,.12),
+                    rgba(255,255,255,.035)
+                );
+
+            border: 1px solid rgba(0,180,219,.25);
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 180, 219, 0.4);
+        .resume-icon {
+            font-size: 3rem;
         }
+
+        .resume-card h3 {
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .resume-card p {
+            color: #cbd5e1;
+        }
+
+        /* SKILLS */
 
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 10px;
         }
 
         .skill {
-            background: rgba(0, 180, 219, 0.2);
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 20px;
-            font-size: 1em;
-            border: 1px solid rgba(0, 180, 219, 0.3);
-        }
 
-        .model-showcase {
-            text-align: center;
-            padding: 40px;
-        }
+            background: rgba(0,180,219,.1);
+            border: 1px solid rgba(0,180,219,.2);
 
-        .model-preview {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-
-        /* DIMENSION BREAKER */
-
-        .project-content {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
-            gap: 30px;
-            align-items: stretch;
-        }
-
-        .project-info {
-            min-width: 0;
-        }
-
-        .video-preview {
-            background: rgba(0, 0, 0, 0.25);
-            border-radius: 15px;
-            padding: 15px;
-            border: 1px solid rgba(0, 180, 219, 0.25);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .video-label {
-            font-weight: bold;
-            color: #00b4db;
-            margin-bottom: 12px;
-            font-size: 1.05em;
-        }
-
-        /*
-            Google Drive folder нельзя напрямую вставить
-            как видео через iframe.
-
-            Поэтому делаем красивую карточку,
-            которая открывает папку с геймплеем.
-        */
-
-        .gameplay-card {
-            flex: 1;
-            min-height: 240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            padding: 30px;
-
-            border-radius: 12px;
-
-            text-decoration: none;
-            color: white;
-
-            background:
-                radial-gradient(
-                    circle at 50% 20%,
-                    rgba(0, 180, 219, 0.3),
-                    transparent 50%
-                ),
-                linear-gradient(
-                    145deg,
-                    rgba(0, 180, 219, 0.18),
-                    rgba(0, 0, 0, 0.35)
-                );
-
-            border: 1px solid rgba(0, 180, 219, 0.4);
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .gameplay-card:hover {
-            transform: translateY(-5px);
-            border-color: #00b4db;
-            box-shadow:
-                0 15px 35px rgba(0, 180, 219, 0.25);
-        }
-
-        .gameplay-icon {
-            width: 65px;
-            height: 65px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding-left: 5px;
-
-            margin-bottom: 18px;
-
-            border-radius: 50%;
-
-            background: linear-gradient(
-                45deg,
-                #00b4db,
-                #0083b0
-            );
-
-            font-size: 1.7em;
-
-            box-shadow:
-                0 8px 25px rgba(0, 180, 219, 0.35);
-        }
-
-        .gameplay-title {
-            font-size: 1.25em;
-            font-weight: bold;
-            margin-bottom: 7px;
-        }
-
-        .gameplay-subtitle {
-            font-size: 0.9em;
-            opacity: 0.7;
-            margin-bottom: 18px;
-        }
-
-        .gameplay-btn {
-            display: inline-block;
-
-            padding: 10px 20px;
-
-            border-radius: 25px;
-
-            background: rgba(0, 180, 219, 0.18);
-
-            border: 1px solid rgba(0, 180, 219, 0.5);
-
-            color: #00b4db;
-
-            font-weight: bold;
-        }
-
-        /* MAPS */
-
-        .maps-card {
-            margin-top: 20px;
-            padding: 20px;
-
-            background: rgba(0, 180, 219, 0.08);
-
-            border-radius: 15px;
-
-            border: 1px solid rgba(0, 180, 219, 0.2);
-        }
-
-        .maps-card h4 {
-            color: #00b4db;
-            margin-bottom: 8px;
+            color: #dbeafe;
         }
 
         /* FOOTER */
 
         footer {
             text-align: center;
-            padding: 30px 20px;
-            opacity: 0.65;
+            padding: 40px 20px;
+            color: #64748b;
         }
 
         /* MOBILE */
 
-        @media (max-width: 768px) {
-
-            body {
-                padding: 10px;
-            }
+        @media(max-width: 700px) {
 
             header {
-                padding: 40px 15px;
+                min-height: auto;
+                padding: 30px 0 40px;
             }
 
-            h1 {
-                font-size: 2.2em;
-            }
-
-            h2 {
-                font-size: 1.8em;
+            .hero {
+                padding: 40px 20px;
             }
 
             section {
-                padding: 25px;
+                padding: 25px 20px;
+            }
+
+            .project {
+                padding: 22px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
             }
 
             .contacts {
                 flex-direction: column;
-                align-items: stretch;
             }
 
-            .contact-item {
-                text-align: center;
-            }
-
-            .project {
-                padding: 20px;
-            }
-
-            .project-content {
+            .resume-card {
                 grid-template-columns: 1fr;
-            }
-
-            .gameplay-card {
-                min-height: 220px;
-            }
-
-            .btn {
-                display: block;
                 text-align: center;
-                margin-right: 0;
             }
         }
     </style>
@@ -398,158 +336,155 @@
 
 <div class="container">
 
-    <!-- HEADER -->
+
+    <!-- HERO -->
 
     <header>
 
-        <h1>Артем Козлов</h1>
+        <div class="hero">
 
-        <div class="subtitle">
-            Геймдизайнер & 3D-художник
-        </div>
-
-        <p>
-            Создаю игровые миры от концепции до визуальной реализации
-        </p>
-
-
-        <div class="contacts">
-
-            <div class="contact-item">
-                📞 +375 (29) 121-38-05
+            <div class="hero-badge">
+                🎮 Game Designer & 3D Artist
             </div>
 
-            <div class="contact-item">
-                ✈️ Telegram: @George2k2
+            <h1>
+                Артем Козлов
+            </h1>
+
+            <h2>
+                Создаю игровые системы и визуальные миры
+            </h2>
+
+            <p class="hero-description">
+                Онлайн-портфолио с проектами по геймдизайну,
+                разработке игровых механик и 3D-моделированию.
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    class="btn"
+                    href="#projects"
+                >
+                    🎮 Смотреть проекты
+                </a>
+
+                <a
+                    class="btn secondary"
+                    href="#resume"
+                >
+                    📄 Моё резюме
+                </a>
+
             </div>
 
-            <div class="contact-item">
-                📧 ar_koz@mail.ru
-            </div>
 
-            <div class="contact-item">
-                🎨 Sketchfab: ar_koz
-            </div>
+            <div class="contacts">
 
-            <a
-                href="https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D1%91%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359"
-                class="contact-item"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                💼 LinkedIn
-            </a>
+                <a
+                    class="contact"
+                    href="https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D0%B5%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    💼 LinkedIn
+                </a>
+
+                <a
+                    class="contact"
+                    href="https://sketchfab.com/ar_koz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    🎨 Sketchfab
+                </a>
+
+                <a
+                    class="contact"
+                    href="mailto:ar_koz@mail.ru"
+                >
+                    📧 Email
+                </a>
+
+                <a
+                    class="contact"
+                    href="https://t.me/George2k2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ✈️ Telegram
+                </a>
+
+            </div>
 
         </div>
 
     </header>
 
 
-    <!-- GAME DESIGN -->
+    <!-- PROJECTS -->
 
-    <section id="gamedesign">
+    <section id="projects">
 
-        <h2>🎮 Проекты по геймдизайну</h2>
+        <h2>
+            🎮 Проекты
+        </h2>
 
 
         <!-- DIMENSION BREAKER -->
 
         <div class="project">
 
-            <h3>Dimension Breaker</h3>
+            <h3>
+                Dimension Breaker
+            </h3>
 
-            <div class="project-meta">
+            <div class="tags">
 
-                <span class="meta-item">
-                    Гибридный PvP-шутер
+                <span class="tag">
+                    PvP Shooter
                 </span>
 
-                <span class="meta-item">
-                    Файтинг
+                <span class="tag">
+                    Fighting
                 </span>
 
-                <span class="meta-item">
-                    Автор концепции
+                <span class="tag">
+                    Game Design
                 </span>
 
-                <span class="meta-item">
+                <span class="tag">
                     2024
                 </span>
 
             </div>
 
+            <p>
+                Гибридный PvP-шутер с элементами файтинга.
+                Проект с собственной системой «Кодов Разлома»,
+                объединяющей стрельбу и динамичный ближний бой.
+            </p>
 
-            <div class="project-content">
+            <div class="buttons">
 
-                <!-- TEXT -->
+                <a
+                    class="btn"
+                    href="https://docs.google.com/document/d/1weUfEU06b8cvYz1RSUsY2c4GRL5msqNq/edit?usp=sharing&ouid=109932475300272306572&rtpof=true&sd=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    📄 Открыть GDD
+                </a>
 
-                <div class="project-info">
-
-                    <p>
-                        <strong>
-                            Уникальная система "Кодов Разлома"
-                        </strong>
-                        — механика комбинаций клавиш,
-                        объединяющая тактический шутер
-                        и динамичный файтинг.
-                    </p>
-
-                    <p style="margin-top: 15px;">
-                        Проект включает полный GDD
-                        с проработанными механиками,
-                        нарративом и балансом.
-                    </p>
-
-
-                    <!-- GDD -->
-
-                    <a
-                        href="https://docs.google.com/document/d/1weUfEU06b8cvYz1RSUsY2c4GRL5msqNq/edit?usp=sharing&ouid=109932475300272306572&rtpof=true&sd=true"
-                        class="btn"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        📄 Открыть полный GDD
-                    </a>
-
-                </div>
-
-
-                <!-- GAMEPLAY -->
-
-                <div class="video-preview">
-
-                    <div class="video-label">
-                        🎮 Геймплей
-                    </div>
-
-
-                    <a
-                        href="https://drive.google.com/drive/folders/1tw5Fsjouwepf7l_t-75IMCk0QXkk2JIl?usp=sharing"
-                        class="gameplay-card"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-
-                        <div class="gameplay-icon">
-                            ▶
-                        </div>
-
-                        <div class="gameplay-title">
-                            Dimension Breaker
-                        </div>
-
-                        <div class="gameplay-subtitle">
-                            Видео геймплея проекта
-                        </div>
-
-                        <span class="gameplay-btn">
-                            Смотреть геймплей →
-                        </span>
-
-                    </a>
-
-                </div>
+                <a
+                    class="btn secondary"
+                    href="https://drive.google.com/drive/folders/1tw5Fsjouwepf7l_t-75IMCk0QXkk2JIl?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    🎮 Геймплей
+                </a>
 
             </div>
 
@@ -560,49 +495,43 @@
 
         <div class="project">
 
-            <h3>Titan Hunt: Evolved</h3>
+            <h3>
+                Titan Hunt: Evolved
+            </h3>
 
-            <div class="project-meta">
+            <div class="tags">
 
-                <span class="meta-item">
-                    Кооперативный экшен
+                <span class="tag">
+                    Co-op Action
                 </span>
 
-                <span class="meta-item">
-                    В разработке
+                <span class="tag">
+                    Game Design
                 </span>
 
-                <span class="meta-item">
-                    Геймдизайнер
-                </span>
-
-                <span class="meta-item">
-                    Командный проект
+                <span class="tag">
+                    Team Project
                 </span>
 
             </div>
 
-
             <p>
-                Командная разработка кооперативного экшена
-                с акцентом на тактическое взаимодействие
-                и прокачку персонажей.
+                Кооперативный экшен с акцентом на командное
+                взаимодействие, игровые механики и развитие персонажей.
             </p>
 
-            <p style="margin-top: 10px;">
-                Отвечаю за проектирование игровых механик
-                и баланс.
-            </p>
+            <div class="buttons">
 
+                <a
+                    class="btn"
+                    href="https://docs.google.com/document/d/1BPOZ9Pv4Bgz3pka1ggdJd4kkLxUbggLab_jC6trtrxw/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    📄 Документация
+                </a>
 
-            <a
-                href="https://docs.google.com/document/d/1BPOZ9Pv4Bgz3pka1ggdJd4kkLxUbggLab_jC6trtrxw/edit?usp=sharing"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                📄 Документация проекта
-            </a>
+            </div>
 
         </div>
 
@@ -611,68 +540,49 @@
 
         <div class="project">
 
-            <h3>Escape from Hell</h3>
+            <h3>
+                Escape from Hell
+            </h3>
 
-            <div class="project-meta">
+            <div class="tags">
 
-                <span class="meta-item">
-                    Настольная игра
+                <span class="tag">
+                    Board Game
                 </span>
 
-                <span class="meta-item">
-                    Полный цикл разработки
+                <span class="tag">
+                    Survival Horror
                 </span>
 
-                <span class="meta-item">
-                    Геймдизайнер
+                <span class="tag">
+                    Game Design
                 </span>
 
             </div>
 
-
             <p>
-                Разработка правил, систем и механик
-                для настольной игры в жанре survival horror.
+                Настольная игра в жанре survival horror.
+                Разработка правил, систем и игровых механик.
             </p>
 
-            <p style="margin-top: 10px;">
-                Полный цикл от концепции
-                до тестирования прототипа.
-            </p>
-
-
-            <!-- RULES -->
-
-            <a
-                href="https://docs.google.com/document/d/1P0DPlh8mp7idSUqpu1ZkeumX6Ee-1B2h/edit?usp=sharing&ouid=108207688769805314952&rtpof=true&sd=true"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                📄 Правила и механики
-            </a>
-
-
-            <!-- MAPS -->
-
-            <div class="maps-card">
-
-                <h4>
-                    🗺️ Карты игры
-                </h4>
-
-                <p>
-                    Изображения игровых карт
-                    и материалы проекта.
-                </p>
+            <div class="buttons">
 
                 <a
-                    href="https://drive.google.com/drive/folders/1LT-bqkcdYNesqAL8GrZciVRBP-nqnI-Q?usp=drive_link"
                     class="btn"
+                    href="https://docs.google.com/document/d/1P0DPlh8mp7idSUqpu1ZkeumX6Ee-1B2h/edit?usp=sharing&ouid=108207688769805314952&rtpof=true&sd=true"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    🗺️ Открыть карты
+                    📄 Правила
+                </a>
+
+                <a
+                    class="btn secondary"
+                    href="https://drive.google.com/drive/folders/1LT-bqkcdYNesqAL8GrZciVRBP-nqnI-Q?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    🗺️ Карты
                 </a>
 
             </div>
@@ -684,190 +594,136 @@
 
     <!-- 3D -->
 
-    <section id="3d-art">
+    <section>
 
         <h2>
-            🎨 3D-графика и моделирование
+            🎨 3D Art
         </h2>
-
-
-        <div class="model-showcase">
-
-            <h3>
-                Мои работы на Sketchfab
-            </h3>
-
-            <p>
-                Коллекция 3D-моделей персонажей
-                и объектов, созданных с использованием
-                полного цикла производства.
-            </p>
-
-
-            <div class="model-preview">
-
-                <h4>
-                    🔄 Полный цикл разработки
-                </h4>
-
-                <p>
-                    Скульптинг →
-                    Ретопология →
-                    UV-развертка →
-                    Текстурирование →
-                    Рендеринг
-                </p>
-
-            </div>
-
-
-            <a
-                href="https://sketchfab.com/ar_koz"
-                class="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                🌟 Перейти к моим 3D-моделям
-            </a>
-
-        </div>
-
 
         <div class="project">
 
             <h3>
-                Технические навыки в 3D
+                3D-моделирование
             </h3>
 
-            <div class="project-meta">
+            <p>
+                Создание игровых моделей и объектов,
+                включая моделирование, ретопологию,
+                UV-развертку и PBR-текстурирование.
+            </p>
 
-                <span class="meta-item">
-                    3Ds Max
-                </span>
+            <div class="buttons">
 
-                <span class="meta-item">
-                    Blender
-                </span>
-
-                <span class="meta-item">
-                    PBR текстурирование
-                </span>
-
-                <span class="meta-item">
-                    Оптимизация
-                </span>
+                <a
+                    class="btn"
+                    href="https://sketchfab.com/ar_koz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    🎨 Открыть Sketchfab
+                </a>
 
             </div>
-
-            <p>
-                Создание игровых моделей с учетом
-                технических требований:
-                оптимизация полигонов,
-                правильная UV-развертка,
-                PBR-материалы.
-            </p>
 
         </div>
 
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- RESUME -->
 
-    <section id="about">
+    <section id="resume">
 
         <h2>
-            👨‍💻 Обо мне
+            📄 Резюме
         </h2>
 
 
-        <div class="project">
+        <div class="resume-card">
 
-            <h3>
-                Образование и опыт
-            </h3>
+            <div>
 
-            <p>
-                <strong>БГУИР</strong> —
-                Информационные системы и технологии
-                в игровой индустрии
-                (2022–2026)
-            </p>
+                <div class="resume-icon">
+                    📑
+                </div>
 
-            <p style="margin-top: 10px;">
-                Специализируюсь на создании
-                комплексных игровых решений,
-                сочетая навыки геймдизайна
-                и 3D-моделирования.
-            </p>
+                <h3>
+                    Моё PDF-резюме
+                </h3>
+
+                <p>
+                    Здесь можно посмотреть актуальную версию
+                    моего резюме в формате PDF.
+                </p>
+
+            </div>
+
+
+            <!-- ТВОЯ ССЫЛКА НА PDF -->
+
+            <a
+                class="btn"
+                href="https://drive.google.com/file/d/1c4oCffawPK8kLis_3cELLwTLYdsfo7bC/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                📄 Открыть резюме
+            </a>
 
         </div>
 
-
-        <div style="margin-top: 30px;">
-
-            <h3
-                style="
-                    font-size: 1.4em;
-                    margin-bottom: 20px;
-                    color: #00b4db;
-                "
-            >
-                Ключевые навыки:
-            </h3>
+    </section>
 
 
-            <div class="skills">
+    <!-- SKILLS -->
 
-                <span class="skill">
-                    Системный геймдизайн
-                </span>
+    <section>
 
-                <span class="skill">
-                    Проектирование механик
-                </span>
+        <h2>
+            🛠️ Навыки
+        </h2>
 
-                <span class="skill">
-                    Написание GDD
-                </span>
+        <div class="skills">
 
-                <span class="skill">
-                    Балансировка игр
-                </span>
+            <span class="skill">
+                Game Design
+            </span>
 
-                <span class="skill">
-                    3D-моделирование
-                </span>
+            <span class="skill">
+                GDD
+            </span>
 
-                <span class="skill">
-                    PBR-текстурирование
-                </span>
+            <span class="skill">
+                Game Mechanics
+            </span>
 
-                <span class="skill">
-                    Игровые нарративы
-                </span>
+            <span class="skill">
+                Level Design
+            </span>
 
-                <span class="skill">
-                    Левел-дизайн
-                </span>
+            <span class="skill">
+                Game Balance
+            </span>
 
-                <span class="skill">
-                    Работа в команде
-                </span>
+            <span class="skill">
+                3D Modeling
+            </span>
 
-                <span class="skill">
-                    Unity
-                </span>
+            <span class="skill">
+                PBR Texturing
+            </span>
 
-                <span class="skill">
-                    Blender
-                </span>
+            <span class="skill">
+                Unity
+            </span>
 
-                <span class="skill">
-                    3Ds Max
-                </span>
+            <span class="skill">
+                Blender
+            </span>
 
-            </div>
+            <span class="skill">
+                3Ds Max
+            </span>
 
         </div>
 
@@ -876,34 +732,33 @@
 
     <!-- CONTACT -->
 
-    <section id="contact">
+    <section>
 
         <h2>
-            📞 Контакты
+            📬 Контакты
         </h2>
-
 
         <div class="contacts">
 
-            <div class="contact-item">
-                📧 Email: ar_koz@mail.ru
-            </div>
-
-            <div class="contact-item">
-                ✈️ Telegram: @George2k2
-            </div>
-
-            <div class="contact-item">
-                📞 Телефон: +375 (29) 121-38-05
-            </div>
-
-            <div class="contact-item">
-                🎨 Sketchfab: ar_koz
-            </div>
+            <a
+                class="contact"
+                href="mailto:ar_koz@mail.ru"
+            >
+                📧 ar_koz@mail.ru
+            </a>
 
             <a
+                class="contact"
+                href="https://t.me/George2k2"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ✈️ Telegram
+            </a>
+
+            <a
+                class="contact"
                 href="https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D0%B5%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359"
-                class="contact-item"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -911,17 +766,6 @@
             </a>
 
         </div>
-
-
-        <p
-            style="
-                text-align: center;
-                margin-top: 20px;
-                opacity: 0.8;
-            "
-        >
-            Открыт к сотрудничеству и новым проектам!
-        </p>
 
     </section>
 
@@ -931,60 +775,6 @@
     </footer>
 
 </div>
-
-
-<!-- ANIMATIONS -->
-
-<script>
-
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-
-    const observer =
-        new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach(
-                    (entry) => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.style.opacity = "1";
-
-                            entry.target.style.transform =
-                                "translateY(0)";
-                        }
-
-                    }
-                );
-
-            },
-            observerOptions
-        );
-
-
-    document
-        .querySelectorAll(".project")
-        .forEach(
-            (project) => {
-
-                project.style.opacity = "0";
-
-                project.style.transform =
-                    "translateY(20px)";
-
-                project.style.transition =
-                    "opacity 0.6s ease, transform 0.6s ease";
-
-                observer.observe(project);
-
-            }
-        );
-
-</script>
 
 </body>
 </html>
