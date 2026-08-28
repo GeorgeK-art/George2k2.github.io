@@ -10,7 +10,7 @@
 - **3D-модели персонажей** - Полный цикл создания игровых моделей
 
 ### Ссылки:
-- 🌐 **[Онлайн-портфолио](index.html)**
+- 🌐 **[Онлайн-портфолио](file:///C:/Users/Артём/Downloads/портфолио_обновленное%20(1).html)**
 - 🎨 **[3D-модели на Sketchfab](https://sketchfab.com/ar_koz)**
 - 📄 **[Dimension Breaker GDD](https://docs.google.com/document/d/1UPUBysWIjC8riCLSlc11Dv-kuOCIRx1ZyMEm9mvk3pc/edit)**
 
