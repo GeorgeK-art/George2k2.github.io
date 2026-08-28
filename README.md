@@ -14,7 +14,7 @@
 ### Ссылки
 
 - 🌐 **[Онлайн-портфолио](https://george2k2.github.io/)**
-- 💼 **[LinkedIn](https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D1%91%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359)**
+- 💼 **[LinkedIn](https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D0%B5%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359)**
 
 ### Контакты
 
