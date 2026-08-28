@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Артем Козлов | Game Designer & 3D Artist</title>
+    <title>Артем Козлов | Game Designer</title>
 
     <style>
         * {
@@ -21,11 +21,17 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background:
-                radial-gradient(circle at top right, rgba(0,180,219,.15), transparent 35%),
-                linear-gradient(135deg, #0f172a, #111827 50%, #16213e);
+                radial-gradient(circle at top right, rgba(0, 180, 219, .14), transparent 35%),
+                radial-gradient(circle at bottom left, rgba(56, 189, 248, .07), transparent 30%),
+                linear-gradient(135deg, #0b1120, #111827 50%, #16213e);
+
             color: #fff;
             line-height: 1.6;
             min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
         }
 
         .container {
@@ -33,44 +39,125 @@
             margin: auto;
         }
 
-        /* HEADER */
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(11, 17, 32, .78);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .nav-inner {
+            min-height: 65px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            letter-spacing: .5px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-size: .9rem;
+
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
 
         header {
             min-height: 90vh;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
-            padding: 60px 20px;
+
+            padding: 70px 20px;
         }
 
         .hero {
             width: 100%;
-            max-width: 850px;
-            padding: 60px 35px;
-            background: rgba(255,255,255,.055);
-            border: 1px solid rgba(255,255,255,.1);
+            max-width: 900px;
+
+            padding: 70px 40px;
+
+            background: rgba(255, 255, 255, .045);
+
+            border: 1px solid rgba(255, 255, 255, .1);
             border-radius: 30px;
-            box-shadow: 0 25px 80px rgba(0,0,0,.25);
+
+            box-shadow: 0 30px 100px rgba(0, 0, 0, .3);
+
             backdrop-filter: blur(15px);
         }
 
         .hero-badge {
             display: inline-block;
-            padding: 7px 15px;
-            border-radius: 20px;
-            background: rgba(0,180,219,.12);
-            border: 1px solid rgba(0,180,219,.3);
-            color: #00b4db;
-            margin-bottom: 20px;
+
+            padding: 8px 17px;
+
+            border-radius: 25px;
+
+            background: rgba(0, 180, 219, .1);
+            border: 1px solid rgba(0, 180, 219, .3);
+
+            color: #38bdf8;
+
+            font-size: .9rem;
+            font-weight: bold;
+
+            margin-bottom: 25px;
         }
 
         h1 {
-            font-size: clamp(2.4rem, 7vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 15px;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1.05;
 
-            background: linear-gradient(45deg, #00b4db, #38bdf8, #0083b0);
+            margin-bottom: 20px;
+
+            background: linear-gradient(
+                45deg,
+                #00b4db,
+                #38bdf8,
+                #7dd3fc
+            );
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -78,118 +165,195 @@
         .hero h2 {
             border: none;
             padding: 0;
+
             color: #fff;
-            font-size: clamp(1.3rem, 4vw, 2rem);
+
+            font-size: clamp(1.4rem, 4vw, 2rem);
+
             margin-bottom: 20px;
         }
 
         .hero-description {
-            max-width: 650px;
+            max-width: 680px;
+
             margin: auto;
+
             color: #cbd5e1;
-            font-size: 1.05rem;
+
+            font-size: 1.08rem;
         }
 
-        /* BUTTONS */
+
+        /* =========================
+           BUTTONS
+        ========================= */
 
         .buttons {
             display: flex;
             flex-wrap: wrap;
+
             gap: 12px;
+
             justify-content: center;
+
             margin-top: 30px;
         }
 
         .btn {
             display: inline-block;
+
             padding: 13px 23px;
+
             border-radius: 28px;
+
             text-decoration: none;
+
             color: #fff;
+
             font-weight: bold;
 
-            background: linear-gradient(45deg, #00b4db, #0083b0);
+            background: linear-gradient(
+                45deg,
+                #00b4db,
+                #0083b0
+            );
 
-            border: 1px solid rgba(255,255,255,.1);
+            border: 1px solid rgba(255, 255, 255, .1);
 
             transition:
                 transform .25s ease,
-                box-shadow .25s ease,
-                background .25s ease;
+                box-shadow .25s ease;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0,180,219,.3);
+
+            box-shadow:
+                0 12px 30px rgba(0, 180, 219, .3);
         }
 
         .btn.secondary {
-            background: rgba(255,255,255,.06);
-            border-color: rgba(0,180,219,.3);
+            background: rgba(255, 255, 255, .06);
+
+            border-color: rgba(0, 180, 219, .3);
         }
 
-        /* CONTACTS */
+
+        /* =========================
+           CONTACTS
+        ========================= */
 
         .contacts {
             display: flex;
             flex-wrap: wrap;
+
             justify-content: center;
+
             gap: 10px;
-            margin-top: 25px;
+
+            margin-top: 30px;
         }
 
         .contact {
             text-decoration: none;
+
             color: #dbeafe;
+
             padding: 9px 15px;
+
             border-radius: 20px;
-            background: rgba(255,255,255,.05);
-            border: 1px solid rgba(255,255,255,.08);
+
+            background: rgba(255, 255, 255, .04);
+
+            border: 1px solid rgba(255, 255, 255, .08);
+
             transition: .25s;
         }
 
         .contact:hover {
-            color: #00b4db;
-            border-color: rgba(0,180,219,.4);
+            color: #38bdf8;
+
+            border-color: rgba(0, 180, 219, .4);
+
             transform: translateY(-2px);
         }
 
-        /* SECTIONS */
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
             margin-bottom: 30px;
-            padding: 40px;
 
-            background: rgba(255,255,255,.055);
-            border: 1px solid rgba(255,255,255,.1);
+            padding: 45px;
+
+            background: rgba(255, 255, 255, .045);
+
+            border: 1px solid rgba(255, 255, 255, .09);
+
             border-radius: 25px;
 
             backdrop-filter: blur(12px);
         }
 
         h2 {
-            color: #00b4db;
+            color: #38bdf8;
+
             font-size: 2rem;
+
             margin-bottom: 30px;
 
             border-left: 5px solid #00b4db;
+
             padding-left: 15px;
         }
 
-        /* PROJECTS */
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-text {
+            max-width: 850px;
+
+            color: #d1d5db;
+
+            font-size: 1.05rem;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        .about-text strong {
+            color: #fff;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
 
         .project {
-            padding: 28px;
-            margin-bottom: 20px;
+            position: relative;
 
-            background: rgba(255,255,255,.045);
+            padding: 30px;
 
-            border-radius: 18px;
+            margin-bottom: 22px;
+
+            background: rgba(255, 255, 255, .035);
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255, 255, 255, .07);
+
             border-left: 4px solid #0083b0;
 
             transition:
                 transform .25s ease,
-                box-shadow .25s ease;
+                box-shadow .25s ease,
+                border-color .25s ease;
         }
 
         .project:last-child {
@@ -197,44 +361,143 @@
         }
 
         .project:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(0,0,0,.2);
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, .22);
+
+            border-color: rgba(56, 189, 248, .25);
         }
 
         .project h3 {
             color: #38bdf8;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+
+            font-size: 1.6rem;
+
+            margin-bottom: 5px;
+        }
+
+        .project-subtitle {
+            color: #94a3b8;
+
+            font-size: .95rem;
+
+            margin-bottom: 15px;
         }
 
         .project p {
             color: #d1d5db;
+
+            margin-bottom: 15px;
+        }
+
+        .project-focus {
+            margin-top: 20px;
+
+            padding: 18px 20px;
+
+            background: rgba(0, 180, 219, .045);
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(0, 180, 219, .12);
+        }
+
+        .project-focus-title {
+            color: #fff;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .project-focus ul {
+            padding-left: 20px;
+
+            color: #cbd5e1;
+        }
+
+        .project-focus li {
+            margin-bottom: 5px;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
+
             gap: 8px;
+
             margin: 15px 0;
         }
 
         .tag {
             padding: 6px 12px;
+
             border-radius: 20px;
 
-            background: rgba(0,180,219,.1);
-            border: 1px solid rgba(0,180,219,.25);
+            background: rgba(0, 180, 219, .09);
+
+            border: 1px solid rgba(0, 180, 219, .22);
 
             color: #bae6fd;
-            font-size: .88rem;
+
+            font-size: .85rem;
         }
 
-        /* RESUME */
+        .project .buttons {
+            justify-content: flex-start;
+
+            margin-top: 20px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 15px 18px;
+
+            border-radius: 14px;
+
+            background: rgba(0, 180, 219, .06);
+
+            border: 1px solid rgba(0, 180, 219, .16);
+
+            color: #dbeafe;
+
+            transition: .25s;
+        }
+
+        .skill:hover {
+            transform: translateY(-3px);
+
+            border-color: rgba(56, 189, 248, .4);
+
+            background: rgba(0, 180, 219, .09);
+        }
+
+
+        /* =========================
+           RESUME
+        ========================= */
 
         .resume-card {
             display: grid;
+
             grid-template-columns: 1fr auto;
+
             gap: 30px;
+
             align-items: center;
 
             padding: 30px;
@@ -244,19 +507,24 @@
             background:
                 linear-gradient(
                     135deg,
-                    rgba(0,180,219,.12),
-                    rgba(255,255,255,.035)
+                    rgba(0, 180, 219, .1),
+                    rgba(255, 255, 255, .025)
                 );
 
-            border: 1px solid rgba(0,180,219,.25);
+            border: 1px solid rgba(0, 180, 219, .2);
         }
 
         .resume-icon {
-            font-size: 3rem;
+            font-size: 2.8rem;
+
+            margin-bottom: 8px;
         }
 
         .resume-card h3 {
             color: #fff;
+
+            font-size: 1.3rem;
+
             margin-bottom: 8px;
         }
 
@@ -264,51 +532,81 @@
             color: #cbd5e1;
         }
 
-        /* SKILLS */
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+
+        .contact-section {
+            text-align: center;
         }
 
-        .skill {
-            padding: 10px 15px;
-            border-radius: 20px;
-
-            background: rgba(0,180,219,.1);
-            border: 1px solid rgba(0,180,219,.2);
-
-            color: #dbeafe;
+        .contact-section h2 {
+            text-align: left;
         }
 
-        /* FOOTER */
+        .contact-section p {
+            color: #cbd5e1;
+
+            max-width: 650px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             text-align: center;
+
             padding: 40px 20px;
+
             color: #64748b;
+
+            font-size: .9rem;
         }
 
-        /* MOBILE */
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media(max-width: 700px) {
 
+            .nav-inner {
+                justify-content: center;
+            }
+
+            .nav-logo {
+                display: none;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: .8rem;
+            }
+
             header {
                 min-height: auto;
-                padding: 30px 0 40px;
+
+                padding: 50px 0 40px;
             }
 
             .hero {
-                padding: 40px 20px;
+                padding: 45px 22px;
             }
 
             section {
-                padding: 25px 20px;
+                padding: 28px 20px;
             }
 
             .project {
-                padding: 22px;
+                padding: 23px;
             }
 
             .buttons {
@@ -325,7 +623,12 @@
 
             .resume-card {
                 grid-template-columns: 1fr;
+
                 text-align: center;
+            }
+
+            .project .buttons {
+                align-items: stretch;
             }
         }
     </style>
@@ -334,417 +637,114 @@
 
 <body>
 
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <div class="container nav-inner">
+
+        <a href="#" class="nav-logo">
+            ARTEM<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">Обо мне</a>
+            </li>
+
+            <li>
+                <a href="#projects">Проекты</a>
+            </li>
+
+            <li>
+                <a href="#skills">Навыки</a>
+            </li>
+
+            <li>
+                <a href="#resume">Резюме</a>
+            </li>
+
+            <li>
+                <a href="#contacts">Контакты</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
 <div class="container">
 
 
-    <!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
-    <header>
+<header>
 
-        <div class="hero">
+    <div class="hero">
 
-            <div class="hero-badge">
-                🎮 Game Designer & 3D Artist
-            </div>
-
-            <h1>
-                Артем Козлов
-            </h1>
-
-            <h2>
-                Создаю игровые системы и визуальные миры
-            </h2>
-
-            <p class="hero-description">
-                Онлайн-портфолио с проектами по геймдизайну,
-                разработке игровых механик и 3D-моделированию.
-            </p>
-
-
-            <div class="buttons">
-
-                <a
-                    class="btn"
-                    href="#projects"
-                >
-                    🎮 Смотреть проекты
-                </a>
-
-                <a
-                    class="btn secondary"
-                    href="#resume"
-                >
-                    📄 Моё резюме
-                </a>
-
-            </div>
-
-
-            <div class="contacts">
-
-                <a
-                    class="contact"
-                    href="https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D0%B5%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    💼 LinkedIn
-                </a>
-
-                <a
-                    class="contact"
-                    href="https://sketchfab.com/ar_koz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    🎨 Sketchfab
-                </a>
-
-                <a
-                    class="contact"
-                    href="mailto:ar_koz@mail.ru"
-                >
-                    📧 Email
-                </a>
-
-                <a
-                    class="contact"
-                    href="https://t.me/George2k2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    ✈️ Telegram
-                </a>
-
-            </div>
-
+        <div class="hero-badge">
+            🎮 GAME DESIGNER
         </div>
 
-    </header>
-
-
-    <!-- PROJECTS -->
-
-    <section id="projects">
+        <h1>
+            Артем Козлов
+        </h1>
 
         <h2>
-            🎮 Проекты
+            Проектирую игровые механики и системы
         </h2>
 
+        <p class="hero-description">
+            Геймдизайнер, специализирующийся на разработке
+            игровых механик, систем, игровых циклов и
+            игровой документации.
+        </p>
 
-        <!-- DIMENSION BREAKER -->
 
-        <div class="project">
-
-            <h3>
-                Dimension Breaker
-            </h3>
-
-            <div class="tags">
-
-                <span class="tag">
-                    PvP Shooter
-                </span>
-
-                <span class="tag">
-                    Fighting
-                </span>
-
-                <span class="tag">
-                    Game Design
-                </span>
-
-                <span class="tag">
-                    2024
-                </span>
-
-            </div>
-
-            <p>
-                Гибридный PvP-шутер с элементами файтинга.
-                Проект с собственной системой «Кодов Разлома»,
-                объединяющей стрельбу и динамичный ближний бой.
-            </p>
-
-            <div class="buttons">
-
-                <a
-                    class="btn"
-                    href="https://docs.google.com/document/d/1weUfEU06b8cvYz1RSUsY2c4GRL5msqNq/edit?usp=sharing&ouid=109932475300272306572&rtpof=true&sd=true"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    📄 Открыть GDD
-                </a>
-
-                <a
-                    class="btn secondary"
-                    href="https://drive.google.com/drive/folders/1tw5Fsjouwepf7l_t-75IMCk0QXkk2JIl?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    🎮 Геймплей
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- TITAN HUNT -->
-
-        <div class="project">
-
-            <h3>
-                Titan Hunt: Evolved
-            </h3>
-
-            <div class="tags">
-
-                <span class="tag">
-                    Co-op Action
-                </span>
-
-                <span class="tag">
-                    Game Design
-                </span>
-
-                <span class="tag">
-                    Team Project
-                </span>
-
-            </div>
-
-            <p>
-                Кооперативный экшен с акцентом на командное
-                взаимодействие, игровые механики и развитие персонажей.
-            </p>
-
-            <div class="buttons">
-
-                <a
-                    class="btn"
-                    href="https://docs.google.com/document/d/1BPOZ9Pv4Bgz3pka1ggdJd4kkLxUbggLab_jC6trtrxw/edit?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    📄 Документация
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- ESCAPE FROM HELL -->
-
-        <div class="project">
-
-            <h3>
-                Escape from Hell
-            </h3>
-
-            <div class="tags">
-
-                <span class="tag">
-                    Board Game
-                </span>
-
-                <span class="tag">
-                    Survival Horror
-                </span>
-
-                <span class="tag">
-                    Game Design
-                </span>
-
-            </div>
-
-            <p>
-                Настольная игра в жанре survival horror.
-                Разработка правил, систем и игровых механик.
-            </p>
-
-            <div class="buttons">
-
-                <a
-                    class="btn"
-                    href="https://docs.google.com/document/d/1P0DPlh8mp7idSUqpu1ZkeumX6Ee-1B2h/edit?usp=sharing&ouid=108207688769805314952&rtpof=true&sd=true"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    📄 Правила
-                </a>
-
-                <a
-                    class="btn secondary"
-                    href="https://drive.google.com/drive/folders/1LT-bqkcdYNesqAL8GrZciVRBP-nqnI-Q?usp=drive_link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    🗺️ Карты
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- 3D -->
-
-    <section>
-
-        <h2>
-            🎨 3D Art
-        </h2>
-
-        <div class="project">
-
-            <h3>
-                3D-моделирование
-            </h3>
-
-            <p>
-                Создание игровых моделей и объектов,
-                включая моделирование, ретопологию,
-                UV-развертку и PBR-текстурирование.
-            </p>
-
-            <div class="buttons">
-
-                <a
-                    class="btn"
-                    href="https://sketchfab.com/ar_koz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    🎨 Открыть Sketchfab
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- RESUME -->
-
-    <section id="resume">
-
-        <h2>
-            📄 Резюме
-        </h2>
-
-
-        <div class="resume-card">
-
-            <div>
-
-                <div class="resume-icon">
-                    📑
-                </div>
-
-                <h3>
-                    Моё PDF-резюме
-                </h3>
-
-                <p>
-                    Здесь можно посмотреть актуальную версию
-                    моего резюме в формате PDF.
-                </p>
-
-            </div>
-
-
-            <!-- ТВОЯ ССЫЛКА НА PDF -->
+        <div class="buttons">
 
             <a
                 class="btn"
-                href="https://drive.google.com/file/d/1c4oCffawPK8kLis_3cELLwTLYdsfo7bC/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#projects"
             >
-                📄 Открыть резюме
+                🎮 Смотреть проекты
+            </a>
+
+            <a
+                class="btn secondary"
+                href="#resume"
+            >
+                📄 Моё резюме
             </a>
 
         </div>
 
-    </section>
-
-
-    <!-- SKILLS -->
-
-    <section>
-
-        <h2>
-            🛠️ Навыки
-        </h2>
-
-        <div class="skills">
-
-            <span class="skill">
-                Game Design
-            </span>
-
-            <span class="skill">
-                GDD
-            </span>
-
-            <span class="skill">
-                Game Mechanics
-            </span>
-
-            <span class="skill">
-                Level Design
-            </span>
-
-            <span class="skill">
-                Game Balance
-            </span>
-
-            <span class="skill">
-                3D Modeling
-            </span>
-
-            <span class="skill">
-                PBR Texturing
-            </span>
-
-            <span class="skill">
-                Unity
-            </span>
-
-            <span class="skill">
-                Blender
-            </span>
-
-            <span class="skill">
-                3Ds Max
-            </span>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section>
-
-        <h2>
-            📬 Контакты
-        </h2>
 
         <div class="contacts">
 
             <a
                 class="contact"
+                href="https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D0%B5%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💼 LinkedIn
+            </a>
+
+            <a
+                class="contact"
                 href="mailto:ar_koz@mail.ru"
             >
-                📧 ar_koz@mail.ru
+                📧 Email
             </a>
 
             <a
@@ -756,25 +756,514 @@
                 ✈️ Telegram
             </a>
 
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <h2>
+        👤 Обо мне
+    </h2>
+
+    <div class="about-text">
+
+        <p>
+            <strong>
+                Я — геймдизайнер, специализирующийся на разработке
+                игровых механик, систем и игровых концепций.
+            </strong>
+        </p>
+
+        <p>
+            В работе мне интересно не просто придумать отдельную
+            механику, а понять, как она взаимодействует с остальными
+            системами игры и влияет на опыт игрока.
+        </p>
+
+        <p>
+            Работаю над проектами от этапа формирования концепции
+            до детальной проработки игровых систем и документации.
+            Создаю GDD, проектирую механики, продумываю игровой цикл,
+            баланс и взаимодействие между системами.
+        </p>
+
+        <p>
+            Особенно интересуюсь PvP- и кооперативными играми,
+            системным геймдизайном и созданием механик,
+            которые формируют уникальный игровой опыт.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects">
+
+    <h2>
+        🎮 Проекты
+    </h2>
+
+
+    <!-- DIMENSION BREAKER -->
+
+    <div class="project">
+
+        <h3>
+            Dimension Breaker
+        </h3>
+
+        <div class="project-subtitle">
+            PvP Shooter / Fighting
+        </div>
+
+        <div class="tags">
+
+            <span class="tag">
+                PvP
+            </span>
+
+            <span class="tag">
+                Shooter
+            </span>
+
+            <span class="tag">
+                Fighting
+            </span>
+
+            <span class="tag">
+                Game Design
+            </span>
+
+            <span class="tag">
+                2024
+            </span>
+
+        </div>
+
+        <p>
+            Гибридный PvP-шутер с элементами файтинга.
+            Основная идея проекта — объединить стрельбу,
+            способности и динамичный ближний бой в единую
+            боевую систему.
+        </p>
+
+        <div class="project-focus">
+
+            <div class="project-focus-title">
+                Моя работа над проектом
+            </div>
+
+            <ul>
+
+                <li>
+                    Проектирование игровых механик
+                </li>
+
+                <li>
+                    Разработка боевой системы
+                </li>
+
+                <li>
+                    Система «Кодов Разлома»
+                </li>
+
+                <li>
+                    Проработка взаимодействия систем
+                </li>
+
+                <li>
+                    GDD и игровая документация
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="buttons">
+
             <a
-                class="contact"
-                href="https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D0%B5%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359"
+                class="btn"
+                href="https://docs.google.com/document/d/1weUfEU06b8cvYz1RSUsY2c4GRL5msqNq/edit?usp=sharing&ouid=109932475300272306572&rtpof=true&sd=true"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                💼 LinkedIn
+                📄 Открыть GDD
+            </a>
+
+            <a
+                class="btn secondary"
+                href="https://drive.google.com/drive/folders/1tw5Fsjouwepf7l_t-75IMCk0QXkk2JIl?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🎮 Геймплей
             </a>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <footer>
-        © 2026 Артем Козлов — Game Designer & 3D Artist
-    </footer>
+
+    <!-- TITAN HUNT -->
+
+    <div class="project">
+
+        <h3>
+            Titan Hunt: Evolved
+        </h3>
+
+        <div class="project-subtitle">
+            Cooperative Action
+        </div>
+
+        <div class="tags">
+
+            <span class="tag">
+                Co-op
+            </span>
+
+            <span class="tag">
+                Action
+            </span>
+
+            <span class="tag">
+                Game Design
+            </span>
+
+            <span class="tag">
+                Team Project
+            </span>
+
+        </div>
+
+        <p>
+            Кооперативный экшен с акцентом на командное
+            взаимодействие, игровые механики и развитие
+            персонажей.
+        </p>
+
+        <div class="project-focus">
+
+            <div class="project-focus-title">
+                Основные направления
+            </div>
+
+            <ul>
+
+                <li>
+                    Кооперативные игровые механики
+                </li>
+
+                <li>
+                    Взаимодействие игроков
+                </li>
+
+                <li>
+                    Развитие персонажей
+                </li>
+
+                <li>
+                    Игровой цикл
+                </li>
+
+                <li>
+                    Проектирование систем
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="buttons">
+
+            <a
+                class="btn"
+                href="https://docs.google.com/document/d/1BPOZ9Pv4Bgz3pka1ggdJd4kkLxUbggLab_jC6trtrxw/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                📄 Документация
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ESCAPE FROM HELL -->
+
+    <div class="project">
+
+        <h3>
+            Escape from Hell
+        </h3>
+
+        <div class="project-subtitle">
+            Board Game / Survival Horror
+        </div>
+
+        <div class="tags">
+
+            <span class="tag">
+                Board Game
+            </span>
+
+            <span class="tag">
+                Survival Horror
+            </span>
+
+            <span class="tag">
+                Game Design
+            </span>
+
+        </div>
+
+        <p>
+            Настольная игра в жанре Survival Horror.
+            Проект включает разработку правил, игровых систем,
+            механик взаимодействия игроков и игровых пространств.
+        </p>
+
+        <div class="project-focus">
+
+            <div class="project-focus-title">
+                Моя работа над проектом
+            </div>
+
+            <ul>
+
+                <li>
+                    Проектирование правил игры
+                </li>
+
+                <li>
+                    Разработка игровых механик
+                </li>
+
+                <li>
+                    Игровые пространства
+                </li>
+
+                <li>
+                    Взаимодействие игроков
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="buttons">
+
+            <a
+                class="btn"
+                href="https://docs.google.com/document/d/1P0DPlh8mp7idSUqpu1ZkeumX6Ee-1B2h/edit?usp=sharing&ouid=108207688769805314952&rtpof=true&sd=true"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                📄 Правила
+            </a>
+
+            <a
+                class="btn secondary"
+                href="https://drive.google.com/drive/folders/1LT-bqkcdYNesqAL8GrZciVRBP-nqnI-Q?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🗺️ Карты
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+    <h2>
+        🛠️ Компетенции
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            🎮 Game Design
+        </div>
+
+        <div class="skill">
+            ⚙️ Game Mechanics
+        </div>
+
+        <div class="skill">
+            🧩 System Design
+        </div>
+
+        <div class="skill">
+            📄 GDD
+        </div>
+
+        <div class="skill">
+            ⚖️ Game Balance
+        </div>
+
+        <div class="skill">
+            🗺️ Level Design
+        </div>
+
+        <div class="skill">
+            🔫 PvP Design
+        </div>
+
+        <div class="skill">
+            🤝 Co-op Design
+        </div>
+
+        <div class="skill">
+            🔄 Game Loops
+        </div>
+
+        <div class="skill">
+            📝 Game Documentation
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RESUME
+========================= -->
+
+<section id="resume">
+
+    <h2>
+        📄 Резюме
+    </h2>
+
+    <div class="resume-card">
+
+        <div>
+
+            <div class="resume-icon">
+                📑
+            </div>
+
+            <h3>
+                Моё PDF-резюме
+            </h3>
+
+            <p>
+                Более подробная информация обо мне,
+                моём образовании, опыте и навыках находится
+                в моём резюме.
+            </p>
+
+        </div>
+
+        <a
+            class="btn"
+            href="https://drive.google.com/file/d/1c4oCffawPK8kLis_3cELLwTLYdsfo7bC/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            📄 Открыть резюме
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACTS
+========================= -->
+
+<section
+    id="contacts"
+    class="contact-section"
+>
+
+    <h2>
+        📬 Контакты
+    </h2>
+
+    <p>
+        Если вы хотите обсудить проект, сотрудничество
+        или позицию Game Designer — буду рад связаться.
+    </p>
+
+    <div class="contacts">
+
+        <a
+            class="contact"
+            href="mailto:ar_koz@mail.ru"
+        >
+            📧 ar_koz@mail.ru
+        </a>
+
+        <a
+            class="contact"
+            href="https://t.me/George2k2"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            ✈️ Telegram
+        </a>
+
+        <a
+            class="contact"
+            href="https://www.linkedin.com/in/%D0%B0%D1%80%D1%82%D0%B5%D0%BC-%D0%BA%D0%BE%D0%B7%D0%BB%D0%BE%D0%B2-791139359"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            💼 LinkedIn
+        </a>
+
+    </div>
+
+</section>
+
 
 </div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Артем Козлов — Game Designer
+
+</footer>
+
 
 </body>
 </html>
